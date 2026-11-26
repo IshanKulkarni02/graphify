@@ -1115,6 +1115,9 @@ def _run_cli() -> None:
         print(f"Run 'graphify --help' for full usage.")
         return
 
+    if cmd == "whatsapp":  # fork: local-ollama-whatsapp (graphify/whatsapp.py)
+        from graphify.whatsapp import main as _wa_main
+        raise SystemExit(_wa_main(sys.argv[2:]))
     if dispatch_install_cli(cmd):
         return
     dispatch_command(cmd)
